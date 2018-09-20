@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 namespace calypte;
 
@@ -8,9 +8,9 @@ use Illuminate\Contracts\Cache\Store;
 use Illuminate\Cache\TaggableStore;
 
 class CalypteStore extends TaggableStore implements Store {
-	
+
 	/**
-	 * 
+	 *
 	 * @var calypte\pcalypte\CalypteConnection
 	 */
 	protected $calypte;
@@ -18,7 +18,7 @@ class CalypteStore extends TaggableStore implements Store {
 	protected $prefix;
 
 	/**
-	 * 
+	 *
 	 * @param calypte\pcalypte\CalypteConnection $calypte
 	 * @param string $prefix
 	 */
@@ -47,13 +47,13 @@ class CalypteStore extends TaggableStore implements Store {
 	 */
 	public function many(array $keys){
 		//versão 1.0 não suporta multi
-		$prefixedKeys = 
-			array_map(
+		$prefixedKeys =
+		array_map(
 				function ($key) {
 					return $this->prefix.$key;
-				}, 
+				},
 				$keys
-			);
+				);
 
 			
 		$values = array();
@@ -62,7 +62,7 @@ class CalypteStore extends TaggableStore implements Store {
 			$value = $this->get($key);
 			$values[$key] = $value;
 		}
-		
+
 		return $values;
 	}
 
@@ -86,9 +86,9 @@ class CalypteStore extends TaggableStore implements Store {
 	 * @return void
 	 */
 	public function putMany(array $values, $minutes){
-		
+
 		$time = $this->toTime($minutes);
-		
+
 		foreach ($values as $key => $value) {
 			$this->calypte->put($this->prefix.$key, $value, $time);
 		}
@@ -120,7 +120,7 @@ class CalypteStore extends TaggableStore implements Store {
 		try{
 			$v = $this->calypte->get($key);
 			if(empty($v)){
-				$v = $value; 
+				$v = $value;
 			}
 			else{
 				$v += $value;
@@ -161,7 +161,7 @@ class CalypteStore extends TaggableStore implements Store {
 			$this->calypte->rollback();
 			throw $e;
 		}
-		
+
 		return $v;
 	}
 
