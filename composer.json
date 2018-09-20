@@ -19,7 +19,7 @@
         "phpunit/phpunit": "^4.6"
     },
     "autoload": {
-    	"exclude-from-classmap": ["/tests/", "/test/", "/tests/"],
+    	"exclude-from-classmap": ["/tests/"],
         "psr-4": {
             "calypte\\": "src/"
         }
