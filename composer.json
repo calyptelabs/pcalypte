@@ -1,5 +1,5 @@
 {
-    "name": "calypte/pcalypte",
+    "name": "calypte/calypte",
     "description": "Cliente do cache Calypte",
     "type": "library",
     "license": "Apache 2.0",
@@ -32,7 +32,7 @@
 	"repositories": {
         "git": {
             "type": "git",
-            "url": "https://github.com/calyptelabs/calypte"
+            "url": "https://github.com/calyptelabs/pcalypte"
         }
     }    
 }
