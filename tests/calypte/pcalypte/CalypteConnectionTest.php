@@ -3,7 +3,7 @@
 use calypte\pcalypte\CacheException;
 use calypte\pcalypte\CalypteConnection;
 
-class CalypteConnectionTest extends PHPUnit_Framework_Assert{
+class CalypteConnectionTest extends PHPUnit_Framework_TestCase{
 	
 	private $SERVER_HOST	= "localhost";
 	
