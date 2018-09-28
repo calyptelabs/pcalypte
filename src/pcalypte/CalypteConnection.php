@@ -5,6 +5,7 @@ namespace calypte\pcalypte;
 use calypte\pcalypte\CalypteSender;
 use calypte\pcalypte\CalypteReceiver;
 use calypte\pcalypte\CacheException;
+use Exception;
 
 /**
  * Permite o armazenamento, atualização, remoção de um item em um servidor Calypte.
@@ -170,7 +171,7 @@ class CalypteConnection{
 	 * @param value valor para ser associado à chave.
 	 * @param timeToLive é a quantidade máxima de tempo que um item expira após sua criação.
 	 * @param timeToIdle é a quantidade máxima de tempo que um item expira após o último acesso.
-	 * @return valor anterior associado à chave.
+	 * @return object valor anterior associado à chave.
 	 * @throws CacheException Lançada se ocorrer alguma falha com o servidor.
 	 */
 	public function putIfAbsent(
@@ -245,7 +246,7 @@ class CalypteConnection{
 	 * seu acesso as demais transações.
 	 * @param key chave associada ao valor.
 	 * @param forUpdate <code>true</code> para bloquear o item. Caso contrário <code>false</code>.
-	 * @return valor associado à chave ou <code>null</code>.
+	 * @return object valor associado à chave ou <code>null</code>.
 	 * @throws CacheException Lançada se ocorrer alguma falha com o servidor.
 	 */
 	public function get($key, $forUpdate = false){
@@ -397,7 +398,7 @@ class CalypteConnection{
 	
 	/**
 	 * Obtém o endereço do servidor.
-	 * @return Endereço do servidor.
+	 * @return string Endereço do servidor.
 	 */
 	public function getHost(){
 		return $this->host;
@@ -405,7 +406,7 @@ class CalypteConnection{
 	
 	/**
 	 * Obtém a porta do servidor.
-	 * @return Porta do servidor.
+	 * @return int Porta do servidor.
 	 */
 	public function getPort(){
 		return $this->port;

@@ -1,5 +1,6 @@
 <?php
 
+use calypte\pcalypte\CacheException;
 use calypte\pcalypte\CalypteConnection;
 
 class CalypteConnectionTXTest extends PHPUnit_Framework_TestCase{
