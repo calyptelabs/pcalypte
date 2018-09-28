@@ -7,6 +7,11 @@ use calypte\pcalypte\CalypteReceiver;
 use calypte\pcalypte\CacheException;
 use Exception;
 
+require_once 'CalypteSender.php';
+require_once 'CalypteReceiver.php';
+require_once 'CacheException.php';
+
+
 /**
  * Permite o armazenamento, atualização, remoção de um item em um servidor Calypte.
  *
@@ -440,7 +445,7 @@ class CalypteConnection{
 			return new CacheException("rollback fail: " + ex.toString(), 0, e);
 		}
 	
-		if(is_a($e, "CacheException")){
+		if($e instanceof CacheException/*is_a($e, "CacheException")*/){
 			return $e;
 		}
 		else{
