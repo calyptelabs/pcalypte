@@ -3,7 +3,7 @@
 use calypte\pcalypte\CacheException;
 use calypte\pcalypte\CalypteConnection;
 
-require_once '../../../src/pcalypte/CalypteConnection.php';
+require_once 'pcalypte/CalypteConnection.php';
 
 class CalypteConnectionTXTest extends PHPUnit_Framework_TestCase{
 	
