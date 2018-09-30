@@ -130,6 +130,10 @@ class CalypteReceiver{
 	public function processRollbackTransactionResult($con){
 		$this->processDefaultTransactionCommandResult($con);
 	}
+
+	public function processFlushResult($con){
+	    $this->processDefaultTransactionCommandResult($con);
+	}
 	
 	public function processDefaultTransactionCommandResult($con){
 	

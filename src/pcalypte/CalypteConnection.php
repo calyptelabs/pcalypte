@@ -46,6 +46,8 @@ class CalypteConnection{
 	public static $COMMIT_TX_COMMAND     = "commit";
 	
 	public static $ROLLBACK_TX_COMMAND   = "rollback";
+
+	public static $FLUSH_COMMAND         = "flush";
 	
 	public static $ERROR                 = "error";
 	
@@ -399,6 +401,23 @@ class CalypteConnection{
 		catch(Exception $e){
 			throw new CacheException(null, null, $e);
 		}
+	}
+
+	/**
+	 * Limpa o cache.
+	 * @throws CacheException Lançada se ocorrer alguma falha ao tentar limpar o cache.
+	 */
+	public function flush(){
+	    try{
+	        $this->sender->flush($this->pointer);
+	        $this->receiver->processFlushResult($this->pointer);
+	    }
+	    catch(CacheException $e){
+	        throw $e;
+	    }
+	    catch(Exception $e){
+	        throw new CacheException(null, null, $e);
+	    }
 	}
 	
 	/**

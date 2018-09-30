@@ -130,6 +130,14 @@ class CalypteSender{
 		
 		$this->send($con, $header);
 	}
+
+	public function flush($con){
+	    
+	    $header =
+	    CalypteConnection::$FLUSH_COMMAND . CalypteConnection::$CRLF;
+	    
+	    $this->send($con, $header);
+	}
 	
 	private function send($con, $value){
 		fwrite($con, $value);

@@ -294,4 +294,48 @@ class CalypteConnectionTest extends PHPUnit_Framework_TestCase{
 		}
 	}
 
+	function testFlush(){
+	    $prefixKEY = "testFlush:";
+	    $con = new CalypteConnection($this->SERVER_HOST, $this->SERVER_PORT, false);
+
+	    //remove todos os itens
+	    for($i=0;$i<10;$i++){
+	        $key = $prefixKEY . $i;
+	        $con->remove($key);
+	    }
+	    
+	    //verifica se nenhum item existe
+	    for($i=0;$i<10;$i++){
+	        $key = $prefixKEY . $i;
+	        $o   = $con->get($key);
+	        $this->assertNull($o);
+	    }
+	    
+	    //insere todos os itens
+	    for($i=0;$i<10;$i++){
+	        $key   = $prefixKEY . $i;
+	        $value = $this->VALUE . ":" . $i;
+	        $con->put($key, $value, 0, 0);
+	    }
+	    
+	    //verifica se todos os itens foram inseridos
+	    for($i=0;$i<10;$i++){
+	        $key   = $prefixKEY . $i;
+	        $value = $this->VALUE . ":" . $i;
+	        $o = $con->get($key);
+	        $this->assertEquals($value, $o);
+	    }
+	    
+	    //limpa o cache
+	    $con->flush();
+	    
+	    //Verifica o sucesso do flush
+	    for($i=0;$i<10;$i++){
+	        $key = $prefixKEY . $i;
+	        $o   = $con->get($key);
+	        $this->assertNull($o);
+	    }
+	    
+	}
+	
 }
