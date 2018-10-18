@@ -1,6 +1,10 @@
 # Calypte
 
-Calypte é uma ótima opção de cache para aplicações PHP. Ele é extremamente rápido, trabalha de forma eficiente com pouca memória, permite o armazenamento de dados em memória secundária e tem suporte transacional. Ele pode ser usado para fazer o cache de páginas, compartilhamento de variáveis globais e manipulação de sessões. Também é uma opção de cache no Laravel.
+Calypte é um sistema de cache de propósito geral com suporte transacional. 
+Permite o armazenamento de dados na forma de chave-valor em memoria e disco. É extremamente rápido, 
+tanto para escrita como para leitura, podendo chegar a mais de 600.000 operações por segundo. 
+Não é necessária grandes quantidades de memória para seu funcionamento. Ele trabalha de forma eficiente 
+com pouca memória.
 
 # Instalação
 
