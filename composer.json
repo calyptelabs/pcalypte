@@ -32,6 +32,5 @@
 			"Tests\\" : "tests/"
 		}
 	},
-	"minimum-stability" : "RC",
 	"homepage" : "https://calypte.sourceforge.io/"
 }
