@@ -1,6 +1,6 @@
 {
 	"name" : "calypte/calypte",
-	"description" : "Cliente do cache Calypte",
+	"description" : "Calypte Cache",
 	"type" : "library",
 	"license" : "Apache-2.0",
 	"authors" : [{
@@ -9,7 +9,9 @@
 		}
 	],
 	"support" : {
-		"email" : "calypte@uoutec.com.br"
+		"email" : "calypte@uoutec.com.br",
+		"issues" : "https://github.com/calyptelabs/pcalypte/issues",
+		"source" : "https://github.com/calyptelabs/pcalypte"
 	},
 	"require" : {
 		"php" : ">=5.5"
@@ -29,5 +31,7 @@
 		"psr-4" : {
 			"Tests\\" : "tests/"
 		}
-	}
+	},
+	"minimum-stability" : "RC",
+	"homepage" : "https://calypte.sourceforge.io/"
 }
